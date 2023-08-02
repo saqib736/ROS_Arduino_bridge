@@ -1,0 +1,17 @@
+<launch>
+  <!-- Arguments -->
+  <arg name="map_file" default="$(find ros_arduino_python)/maps/map.yaml"/>
+  <arg name="move_forward_only" default="false"/>
+
+  <!-- Map server -->
+  <node pkg="map_server" name="map_server" type="map_server" args="$(arg map_file)"/>
+
+  <!-- AMCL -->
+  <include file="$(find ros_arduino_python)/launch/amcl.launch"/>
+
+  <!-- move_base -->
+  <include file="$(find ros_arduino_python)/launch/move_base.launch">
+    <arg name="move_forward_only" value="$(arg move_forward_only)"/>
+  </include>
+     
+</launch>

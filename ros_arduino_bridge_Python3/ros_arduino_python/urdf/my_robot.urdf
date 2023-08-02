@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+ <robot name="my_robot">
+ 
+  <link name="base_footprint"/>
+  
+  <joint name="base_joint" type="fixed">
+    <axis xyz="0 0 0"/>
+    <origin rpy="0 0 0" xyz="0 0 0.04"/>
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+  </joint>
+  
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <!--<cylinder length="0.09" radius="0.16"/>-->
+        <mesh filename="package://ros_arduino_python/meshes/main_body.dae" />
+      </geometry>
+      <origin xyz="0.001 0 0.05199" rpy="0 0 0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <!--<cylinder length="0.05" radius="0.16"/>-->
+        <cylinder length="0.10938" radius="0.176"/>
+      </geometry>
+      <origin xyz="0.0 0 0.05949" rpy="0 0 0"/>
+    </collision>
+    <inertial>
+      <mass value="2.4"/> 
+      <origin xyz="0 0 0"/>
+      <inertia ixx="0.0001" ixy="0.0" ixz="0.0"
+               iyy="0.0001" iyz="0.0" 
+               izz="0.0001" />
+    </inertial>
+  </link>
+
+ </robot>
